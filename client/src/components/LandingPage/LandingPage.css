@@ -20,7 +20,7 @@ body {
 .card {
   width: 30%;
   padding: 20px;
-  background-color: #1e1e1e;
+  background: linear-gradient(145deg, #4e4e4e, #2a2a2a); /* Dark gray gradient */
   border: 1px solid #333;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
@@ -70,30 +70,7 @@ body {
 .intro-section {
   margin: 20px;
   padding: 20px;
-  background-color: #2a2a2a;
-  border-radius: 10px;
-}
-
-.intro-section h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #f5f5f5;
-}
-
-.intro-section p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #b0b0b0;
-}
-
-/* LandingPage.css */
-
-/* Existing styles */
-
-.intro-section {
-  margin: 20px;
-  padding: 20px;
-  background-color: #2a2a2a;
+  background: linear-gradient(145deg, #3a3a3a, #2a2a2a); /* Slightly lighter gray gradient */
   border-radius: 10px;
 }
 
@@ -121,67 +98,10 @@ body {
 }
 
 .testimonials {
-  margin: 20px;
-  padding: 20px;
-  background-color: #2a2a2a;
-  border-radius: 10px;
-}
-
-.testimonials h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: #f5f5f5;
-}
-
-.testimonial {
-  margin-bottom: 15px;
-}
-
-.testimonial p {
-  font-size: 1rem;
-  color: #b0b0b0;
-  margin: 0;
-}
-
-.testimonial cite {
-  display: block;
-  font-size: 0.9rem;
-  color: #e0e0e0;
-  margin-top: 5px;
-}
-
-
-.features {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.feature-item {
-  background-color: #1f1f1f;
-  padding: 15px;
-  border-radius: 8px;
-  flex: 1;
-  min-width: 250px;
-}
-
-.feature-item h3 {
-  font-size: 1.5rem;
-  margin-top: 0;
-  color: #f5f5f5;
-}
-
-.feature-item p {
-  font-size: 1rem;
-  color: #b0b0b0;
-}
-
-.testimonials {
   margin: 30px auto;
   padding: 20px;
   max-width: 800px;
-  background-color: #1f1f1f;
+  background: linear-gradient(145deg, #2a2a2a, #1f1f1f); /* Darker gradient for contrast */
   border-radius: 10px;
 }
 
@@ -208,3 +128,30 @@ body {
   color: #e0e0e0;
   margin-top: 5px;
 }
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.feature-item {
+  background: linear-gradient(145deg, #3a3a3a, #2a2a2a); /* Same gradient as intro-section for consistency */
+  padding: 15px;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.feature-item h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: #f5f5f5;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  color: #b0b0b0;
+}
+

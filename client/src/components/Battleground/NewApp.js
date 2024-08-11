@@ -57,7 +57,6 @@ function NewApp() {
   const [leaderboard, setLeaderboard] = useState([]);
   const [username, setUsername] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
-  const [userInput, setUserInput] = useState(""); 
   const toast = useToast();
 
   useEffect(() => {
@@ -100,6 +99,7 @@ function NewApp() {
 
       await axios.post('http://localhost:5500/api/leaderboard', {
         uuid: uuid,
+        username: username, // Include username in the request
         language: language,
         compilationTime: compilationTime,
         success: !stderr,
@@ -148,7 +148,7 @@ function NewApp() {
   return (
     <Box className="app-container">
       <Box className="language-selector">
-      <FormControl id="username" isRequired mt={4}>
+        <FormControl id="username" isRequired mt={4}>
           <FormLabel>Username</FormLabel>
           <Input
             placeholder="Enter your username"
@@ -176,14 +176,21 @@ function NewApp() {
           </MenuList>
         </Menu>
 
-        
+        <section className="sample-problem-description">
+        <Text fontSize="lg" fontWeight="bold">Problem:</Text>
+        <Text mt={2}>
+          Write a function that takes a name as an argument and prints a greeting message to the console. 
+          The message should be in the format: "Hello, [name]!" where [name] is the argument passed to the function.
+        </Text>
+        </section>
       </Box>
-
+        
       <Box className="editor-container">
         <Editor
           key={language}
           options={{ minimap: { enabled: false } }}
-          height="70vh" /* Increased height for better editor visibility */
+          height="70vh"
+          width="90vh" /* Increased height for better editor visibility */
           theme="vs-dark"
           language={language}
           value={value}
@@ -210,7 +217,9 @@ function NewApp() {
         <Text mb={2} fontSize="lg">Leaderboard</Text>
         <Box className="leaderboard-box">
           {leaderboard.map((entry, index) => (
-            <Text key={index}>{`${index + 1}. UUID: ${entry.uuid} - Time: ${entry.compilationTime}ms - Accuracy: ${entry.success ? 'Success' : 'Failure'}`}</Text>
+            <Text key={index}>
+              {`${index + 1}. Username: ${entry.username} - Time: ${entry.compilationTime}ms - Accuracy: ${entry.success ? 'Success' : 'Failure'}`}
+            </Text>
           ))}
         </Box>
       </Box>
