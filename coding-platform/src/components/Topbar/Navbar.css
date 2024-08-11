@@ -4,21 +4,21 @@ nav {
     flex-direction: row-reverse;
     padding: 0px 30px;
     align-items: center;
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #a1a1a1; /* Slightly lighter shade of black */
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1); /* Lighter shadow */
 }
 
 .nav-btn {
     cursor: pointer;
-    background: #0a0a0a;
+    background: #2a2a2a; /* Lighter shade for the button */
     color: white;
     font-size: 0.9rem;
     border-radius: 0.25rem;
-    border: 1px solid;
+    border: 1px solid #3a3a3a; /* Matching border with a slightly lighter shade */
     padding: 0.25rem 0.5rem;
 }
 
 .nav-btn:hover {
-    background: #686767;
+    background: #4a4a4a; /* Lighter shade on hover */
     color: white;
 }

@@ -19,6 +19,7 @@ const CodeEditor = ({ onChange }) => {
         value={value}
         defaultValue="// Write Your Code Here...\n// Work on process for dynamic experience."
         onChange={handleEditorChange}
+        theme="vs-dark"
       />
     </div>
   );

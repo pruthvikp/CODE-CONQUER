@@ -1,48 +1,52 @@
-.main-container {
-    position: relative;
-    margin: 25px auto;
-    padding: 0 1.5rem;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Set the background to black */
+    color: #f5f5f5; /* Light color for text for contrast */
 }
 
-.problem-table {
-    margin: 0 auto;
-    font-size: 1rem;
-    color: #6b7280;
-    width: 75%;
-    text-align: left;
+h1 {
+    text-align: center;
+    color: #f5f5f5; /* Light color for the heading */
+    margin-top: 20px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
     border-collapse: collapse;
+    background-color: #333; /* Dark grey background for the table */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 }
 
-.problem-table thead {
-    font-size: 1rem;
-    color: #3c3c4399;
-    text-transform: uppercase;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.table-heading {
-    padding: 0.75rem 0.25rem;
-    font-weight: 500;
-}
-
-tbody {
-    color: black;
-}
-
-.row-odd {
-    background-color: rgb(247, 248, 250);
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    color: #f5f5f5; /* Light color for table text */
+    border-bottom: 1px solid #444; /* Subtle border for rows */
 }
 
 th {
-    padding: 1rem 1rem;
+    background-color: #444; /* Slightly lighter background for table headers */
+    color: #fff; /* White color for the headers */
 }
 
-td a {
+tr:hover {
+    background-color: #555; /* Lighter grey for hover effect */
+}
+
+a {
+    color: #1e90ff; /* Bright blue for links */
     text-decoration: none;
-    color: black;
-    cursor: pointer;
 }
 
-td a:hover {
-    color: blue;
+a:hover {
+    color: #63a4ff; /* Lighter blue on hover */
+}
+
+@media screen and (max-width: 768px) {
+    table {
+        width: 100%;
+    }
 }

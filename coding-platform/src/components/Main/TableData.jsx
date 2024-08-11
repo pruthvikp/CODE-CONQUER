@@ -17,7 +17,7 @@ const TableData = ({ problems }) => {
                     <tr key={problem._id}>
                         <td>{problem.id}</td>
                         <td>
-                            <Link to={`/problem/${problem._id}`}>{problem.title}</Link>
+                            <Link to={`/problem/${problem.id}`}>{problem.title}</Link>
                         </td>
                         <td>{problem.difficulty}</td>
                         <td>{problem.category}</td>
@@ -28,4 +28,4 @@ const TableData = ({ problems }) => {
     );
 };
 
-export default TableData;
+export default TableData;

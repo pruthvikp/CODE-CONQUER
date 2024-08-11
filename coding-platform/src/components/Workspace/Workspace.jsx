@@ -1,121 +1,45 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import Split from "react-split";
-import { toast } from "react-toastify";
+import React, { useState } from "react";
 import ProblemDescription from "./ProblemDescription";
 import CodeEditor from "./CodeEditor";
 import TestCases from "./TestCases";
+import axios from "axios";
+import "./Workspace.css";
 
-function Workspace() {
-  const urlPathname = window.location.pathname;
-  const segments = urlPathname.split("/");
-  const problemId = segments[segments.length - 1];
-
-  const [details, setDetails] = useState({});
+const Workspace = ({ id }) => {
   const [code, setCode] = useState("");
   const [processing, setProcessing] = useState(false);
-
-  const testcases = details.testcases;
-
-  useEffect(() => {
-    async function fetchDetails() {
-      try {
-        const response = await axios.get(
-          "backend link to ${problemId}"
-        );
-        setDetails(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchDetails();
-  }, [problemId]);
-
-  const onChange = (data) => {
-    setCode(data);
-  };
+  const [testcases, setTestcases] = useState([]);
 
   const handleCompile = async () => {
     setProcessing(true);
-    const formData = {
-      language_id: 63,
-      source_code: btoa(code),
-      stdin: btoa(details?.testcases[0].input),
-    };
-
-    const options = {
-      method: "POST",
-      url: process.env.REACT_APP_RAPID_API_URL,
-      params: { base64_encoded: "true", fields: "*" },
-      headers: {
-        "content-type": "application/json",
-        "Content-Type": "application/json",
-        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
-        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-      },
-      data: formData,
-    };
-
     try {
-      const response = await axios.request(options);
-      const token = response.data.token;
-      checkStatus(token);
+      const response = await axios.post(``, {
+        id,
+        code,
+      });
+      setTestcases(response.data.testcases);
     } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const checkStatus = async (token) => {
-    const options = {
-      method: "GET",
-      url: process.env.REACT_APP_RAPID_API_URL + "/" + token,
-      params: { base64_encoded: "true", fields: "*" },
-      headers: {
-        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
-        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-      },
-    };
-
-    try {
-      const response = await axios.request(options);
-      const statusId = await response.data.status_id;
-      if (statusId === 1 || statusId === 2) {
-        setTimeout(() => {
-          checkStatus(token);
-        }, 2000);
-        return;
-      } else {
-        const output = atob(response.data.stdout);
-        const reqOutput = details.testcases[0].output;
-
-        if (output.trim() == reqOutput.trim()) {
-          toast.success("Congrats! TestCase Passesd");
-        } else {
-          toast.error("Oops! Output Didn't Match");
-        }
-        setProcessing(false);
-        return;
-      }
-    } catch (error) {
+      console.error("Error compiling code:", error);
+    } finally {
       setProcessing(false);
-      console.log(error);
     }
   };
 
   return (
-    <Split className="split" minSize={0}>
-      <ProblemDescription details={details} />
-      <Split className="split-vertical" direction="vertical">
-        <CodeEditor onChange={onChange} />
-        <TestCases
-          handleCompile={handleCompile}
-          testcases={testcases}
-          processing={processing}
+    <div className="workspace-container">
+      <div className="problem-desc-container">
+        <ProblemDescription id={id} />
+      </div>
+      <div className="right-pane">
+        <CodeEditor onChange={setCode} />
+        <TestCases 
+          testcases={testcases} 
+          handleCompile={handleCompile} 
+          processing={processing} 
         />
-      </Split>
-    </Split>
+      </div>
+    </div>
   );
-}
+};
 
 export default Workspace;

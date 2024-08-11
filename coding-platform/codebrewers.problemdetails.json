@@ -1,0 +1,83 @@
+[{
+  "_id": {
+    "$oid": "66b79d16f2c19d6a24a2624e"
+  },
+  "id": "98765",
+  "title": "Merge Intervals",
+  "difficulty": "Hard",
+  "category": "Array",
+  "order": 5,
+  "description": "Given a collection of intervals, merge all overlapping intervals. An interval is defined as [start, end] where start and end are integers.",
+  "examples": [
+    {
+      "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]",
+      "output": "[[1,6],[8,10],[15,18]]",
+      "explanation": "The intervals [[1,3],[2,6]] merge to become [1,6], while [8,10] and [15,18] remain separate."
+    },
+    {
+      "input": "intervals = [[1,4],[4,5]]",
+      "output": "[[1,5]]",
+      "explanation": "The intervals [1,4] and [4,5] merge to become [1,5]."
+    }
+  ],
+  "constraints": [
+    "1 <= intervals.length <= 1000",
+    "intervals[i].length == 2",
+    "0 <= intervals[i][0] <= intervals[i][1] <= 10^4"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b79d1ff2c19d6a24a26250"
+  },
+  "id": "67890",
+  "title": "Reverse String",
+  "difficulty": "Easy",
+  "category": "String",
+  "order": 3,
+  "description": "Write a function that reverses a given string. The function should handle cases with spaces and special characters.",
+  "examples": [
+    {
+      "input": "s = 'hello'",
+      "output": "'olleh'",
+      "explanation": "Reversing the string 'hello' results in 'olleh'."
+    },
+    {
+      "input": "s = 'a b c'",
+      "output": "'c b a'",
+      "explanation": "Reversing the string 'a b c' results in 'c b a'."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 1000"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b79d8ff2c19d6a24a26254"
+  },
+  "id": "54321",
+  "title": "Valid Parentheses",
+  "difficulty": "Medium",
+  "category": "String",
+  "order": 4,
+  "description": "Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if the brackets are closed in the correct order.",
+  "examples": [
+    {
+      "input": "s = '()[]{}'",
+      "output": "true",
+      "explanation": "The string '()[]{}' is valid as all brackets are correctly matched."
+    },
+    {
+      "input": "s = ",
+      "output": "true",
+      "explanation": "The string '(]' is not valid as the brackets are not correctly matched."
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 1000"
+  ],
+  "__v": 0
+}]

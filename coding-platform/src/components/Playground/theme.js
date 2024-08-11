@@ -6,4 +6,4 @@ const theme = extendTheme({
     useSystemColorMode: false,
   },
 });
-export default theme;
+export default theme;
