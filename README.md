@@ -19,7 +19,6 @@
 - **Coding Arena**: Engage in coding challenges and competitions.
 - **Coding Battleground**: A battle zone for head-to-head coding duels.
 - **Dark Mode**: An eye-friendly interface for coding in low light.
-- **Real-Time Code Execution**: Instant feedback on your code.
 
 ## Tech Stack
 
@@ -87,8 +86,9 @@ code-conquer/
 │   ├── public/
 │   └── src/
 │       ├── components/
-│       ├── pages/
+│       ├── App.css
 │       ├── App.js
+│       ├── index.css
 │       └── index.js
 │
 ├── server/           # Backend (Node.js, Express)
@@ -104,7 +104,7 @@ code-conquer/
 
 ## Deployment
 
-The application is hosted on Vercel. You can visit the live site [here](https://your-vercel-app-url).
+The application is hosted on Vercel. You can visit the live site [here](https://code-conquer.vercel.app/).
 
 To deploy your own version:
 
@@ -116,11 +116,3 @@ To deploy your own version:
 ## Contributing
 
 Contributions are welcome! If you’d like to contribute, please fork the repository and make your changes. Submit a pull request with a detailed explanation of your changes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize the content, links, and details as per your specific project setup!
