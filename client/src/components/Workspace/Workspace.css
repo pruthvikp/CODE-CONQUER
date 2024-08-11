@@ -1,171 +1,222 @@
-/* Layout Structure */
+/* Workspace Container */
 .workspace-container {
     display: flex;
+    flex-direction: row;
     min-height: 100vh;
-    background-color: #f0f2f5;
+    background-color: #1a1a1a; /* Dark background */
     padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-/* PROBLEM DESCRIPTION */
+/* Problem Description Container */
 .problem-desc-container {
-    width: 40%;
-    background: white;
+    flex: 1;
+    max-width: 40%;
+    background: #2d2d2d; /* Darker background for problem description */
     border-radius: 5px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #3e3e3e; /* Darker border */
     padding: 1rem;
     overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Slightly darker shadow */
+    box-sizing: border-box;
+    color: #f0f2f5; /* Light text color */
 }
 
-.problem-desc-heading {
-    font-size: 0.75rem;
+/* Right Pane (Code Editor and Test Cases) */
+.right-pane {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Code Editor Container */
+.editor-container {
+    flex: 1;
+    background: #2d2d2d; /* Dark background */
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Slightly darker shadow */
+    box-sizing: border-box;
+    min-height: 0;
+    overflow-y: auto;
+    color: #f0f2f5; /* Light text color */
+}
+
+/* Test Cases Container */
+.testcase-container {
+    flex: 1;
+    background: #2d2d2d; /* Dark background */
+    border-radius: 5px;
+    padding: 1rem;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Slightly darker shadow */
+    box-sizing: border-box;
+    min-height: 0;
+    color: #f0f2f5; /* Light text color */
+}
+/* Problem Description Container */
+.problem-description-container {
+    background: #2d2d2d; /* Dark background */
+    border-radius: 8px;
+    border: 1px solid #3e3e3e; /* Darker border */
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Slightly darker shadow */
+    color: #f0f2f5; /* Light text color */
+    margin-bottom: 1rem;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+/* Title */
+.problem-description-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #e0e0e0; /* Lighter text color for the title */
+}
+
+/* Details */
+.problem-description-container p {
+    margin: 0.5rem 0;
+}
+
+/* Examples Section */
+.examples {
+    margin-top: 1rem;
+}
+
+.examples h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #e0e0e0; /* Lighter text color for headings */
+}
+
+.examples div {
+    background: #1f1f1f; /* Slightly lighter background for examples */
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.examples p {
+    margin: 0;
+}
+
+/* Constraints Section */
+.constraints {
+    margin-top: 1rem;
+}
+
+.constraints h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #e0e0e0; /* Lighter text color for headings */
+}
+
+.constraints ul {
+    padding-left: 1.5rem;
+}
+
+.constraints li {
+    margin-bottom: 0.5rem;
+}
+
+/* Code Editor and Test Cases Heading */
+.code-editor-heading,
+.test-cases-heading {
+    font-size: 0.875rem;
     font-weight: 600;
     height: 2rem;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.desc-title {
-    padding: 1rem 0;
-    font-weight: 600;
-    font-size: 1.125rem;
-}
-
-.desc-difficult {
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-.companies-container {
-    padding: 1rem 0;
-}
-
-.problem-companies {
-    padding: 0.25rem 0.35rem;
-    font-size: 0.75rem;
-    display: inline;
-    font-weight: 300;
-    border-radius: 1rem;
-    background: #e2e8f0;
-}
-
-.problem-description {
-    font-size: 0.875rem;
-    margin-bottom: 2rem;
-}
-
-.example-no,
-.constraints {
-    font-size: 0.875rem;
-    font-weight: bold;
-}
-
-.example-desc {
-    background: #000a2008;
-    padding: 0.75rem;
-    border-radius: 10px;
-    font-size: 0.875rem;
-    margin: 1rem 0;
-    color: rgb(38, 38, 38);
-}
-
-.constraints-container {
-    margin-top: 2rem;
-    font-size: 0.875rem;
-}
-
-/* CODE EDITOR AND TEST CASES */
-/* CODE EDITOR AND TEST CASES */
-.right-pane {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-left: 1rem;
-}
-
-.editor-container {
-    flex: 1;
-    background: white;
-    border-radius: 5px;
-    padding: 1rem;
+    border-bottom: 1px solid #3e3e3e; /* Darker border */
     margin-bottom: 1rem;
-    height: 300px;
-    /* Set the height to occupy the upper half */
+    box-sizing: border-box;
+    color: #f0f2f5; /* Light text color */
 }
 
-.testcase-container {
-    flex: 1;
-    background: white;
+/* Compile Button Container */
+.compile-btn-container {
+    padding: 0.5rem;
+    border-top: 1px solid #3e3e3e; /* Darker border */
+    display: flex;
+    justify-content: flex-end;
+    background: #2d2d2d; /* Dark background */
+    margin-top: auto;
+    box-sizing: border-box;
+}
+
+/* Compile Button Styling */
+.compile-btn-container button {
+    background-color: #2db55d;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
     border-radius: 5px;
-    padding: 1rem;
-    overflow-y: auto;
-    height: 300px;
-    /* Set the height to occupy the lower half */
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease;
 }
 
-.code-editor-heading {
-    font-size: 0.75rem;
-    font-weight: 600;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #e2e8f0;
+.compile-btn-container button:hover {
+    background-color: #0e7231;
 }
 
-
-.test-cases-heading {
-    font-size: 0.75rem;
-    font-weight: 600;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #e2e8f0;
-}
-
+/* Test Case Number Styling */
 .test-case-number {
-    background-color: #000a200d;
-    padding: 0.2rem 0.5rem;
+    background-color: #1f2e23; /* Darker green background */
+    padding: 0.5rem 1rem;
     margin: 0.5rem 0;
     border-radius: 5px;
     display: inline-block;
     cursor: pointer;
+    color: #2db55d; /* Match button color for consistency */
 }
 
-.compile-btn-container {
-    padding: 0.25rem;
-    border-top: 1px solid #e2e8f0;
-    align-items: center;
-    background: white;
-    margin-top: auto;
-}
-
-.compile-btn-container button {
-    background-color: rgb(45 181 93);
-    border: none;
-    padding: 0 0.5rem;
-    font-weight: 700;
-    border-radius: 5px;
-    height: 1.75rem;
-    cursor: pointer;
-    color: white;
-}
-
-.compile-btn-container button:hover {
-    background-color: rgb(14, 114, 49);
-}
-
-.testcases-input-container p,
-.testcases-output-container p {
-    font-size: 0.75rem;
-}
-
+/* Test Case Input and Output */
 .testcase-input,
 .testcase-output {
-    background: #000a2008;
-    padding: 0.75rem;
+    background: #3e3e3e; /* Darker background */
+    padding: 1rem;
     border-radius: 10px;
     font-size: 0.875rem;
     margin-bottom: 1rem;
-    color: rgb(38, 38, 38);
+    color: #f0f2f5; /* Light text color */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .problem-desc-container {
+        max-width: 45%;
+    }
+
+    .right-pane {
+        padding-left: 0.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .workspace-container {
+        flex-direction: column;
+    }
+
+    .problem-desc-container,
+    .right-pane {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    .right-pane {
+        padding-left: 0;
+    }
+
+    .editor-container,
+    .testcase-container {
+        height: auto;
+    }
 }

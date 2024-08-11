@@ -1,7 +1,7 @@
 import React from 'react';
-
+import NewApp from './NewApp.js';
 const Battleground = () => {
-  return <h2>Welcome to the Coding Battleground</h2>;
+  return(< NewApp/>);
 };
 
 export default Battleground;

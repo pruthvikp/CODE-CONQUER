@@ -1,28 +1,48 @@
-import React, { useState } from "react";
-import "./Workspace.css";
-import { Editor } from "@monaco-editor/react"; // Ensure correct import
+import { useRef, useState } from "react";
+import { Box, HStack } from "@chakra-ui/react";
+import { Editor } from "@monaco-editor/react";
+import LanguageSelector from "./LanguageSelector";
+import { CODE_SNIPPETS } from "./constants";
+import Output from "./Output";
 
-const CodeEditor = ({ onChange }) => {
+const CodeEditor = () => {
+  const editorRef = useRef();
   const [value, setValue] = useState("");
+  const [language, setLanguage] = useState("javascript");
 
-  const handleEditorChange = (newValue) => {
-    setValue(newValue); // Update internal state
-    onChange(newValue); // Notify parent component of the change
+  const onMount = (editor) => {
+    editorRef.current = editor;
+    editor.focus();
+  };
+
+  const onSelect = (language) => {
+    setLanguage(language);
+    setValue(CODE_SNIPPETS[language]);
   };
 
   return (
-    <div className="editor-container">
-      <div className="code-editor-heading">JavaScript</div>
-      <Editor
-        width="100%"
-        language="javascript"
-        value={value}
-        defaultValue="// Write Your Code Here...\n// Work on process for dynamic experience."
-        onChange={handleEditorChange}
-        theme="vs-dark"
-      />
-    </div>
+    <Box>
+      <HStack spacing={4}>
+        <Box w="50%">
+          <LanguageSelector language={language} onSelect={onSelect} />
+          <Editor
+            options={{
+              minimap: {
+                enabled: false,
+              },
+            }}
+            height="75vh"
+            theme="vs-dark"
+            language={language}
+            defaultValue={CODE_SNIPPETS[language]}
+            onMount={onMount}
+            value={value}
+            onChange={(value) => setValue(value)}
+          />
+        </Box>
+        <Output editorRef={editorRef} language={language} />
+      </HStack>
+    </Box>
   );
 };
-
 export default CodeEditor;
