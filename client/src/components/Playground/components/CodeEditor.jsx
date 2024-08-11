@@ -6,7 +6,7 @@ import { CODE_SNIPPETS } from "../constants";
 import Output from "./Output";
 import './styles.css';
 
-const VariableInputForm = ({ variables, onChange }) => {
+/*const VariableInputForm = ({ variables, onChange }) => {
   const [newVarName, setNewVarName] = useState("");
   const [newVarValue, setNewVarValue] = useState("");
 
@@ -37,12 +37,12 @@ const VariableInputForm = ({ variables, onChange }) => {
     </Box>
   );
 };
-
+*/
 const CodeEditor = () => {
   const editorRef = useRef();
   const [value, setValue] = useState("");
   const [language, setLanguage] = useState("javascript");
-  const [variables, setVariables] = useState({});
+  //const [variables, setVariables] = useState({});
 
   const onMount = (editor) => {
     editorRef.current = editor;
@@ -51,9 +51,9 @@ const CodeEditor = () => {
 
   const onSelect = (language) => {
     setLanguage(language);
-    setValue(getCodeWithVariables(CODE_SNIPPETS[language], variables));
+    setValue(CODE_SNIPPETS[language]);
   };
-
+/*
   const handleVariableChange = (name, value) => {
     setVariables((prevVariables) => ({
       ...prevVariables,
@@ -77,13 +77,13 @@ const CodeEditor = () => {
     // Update the editor content with the latest variable values
     editorRef.current?.setValue(getCodeWithVariables(newValue, variables));
   };
-
+*/
   return (
     <Box>
       <HStack spacing={4}>
         <Box w="50%">
           <LanguageSelector language={language} onSelect={onSelect} />
-          <VariableInputForm variables={variables} onChange={handleVariableChange} />
+         
           <Editor
             options={{
               minimap: {
@@ -96,7 +96,7 @@ const CodeEditor = () => {
             defaultValue={CODE_SNIPPETS[language]}
             onMount={onMount}
             value={value}
-            onChange={onChange}
+            //onChange={onChange}
           />
         </Box>
         <Output editorRef={editorRef} language={language} />

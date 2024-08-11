@@ -11,6 +11,34 @@
     display: flex;
     flex-direction: column;
 }
+/* Change button color in app-container */
+.app-container button {
+    background-color: rgb(34, 73, 135); /* Blue background for buttons */
+    color: white; /* Text color for buttons */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 4px; /* Optional: Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.app-container button:hover {
+    background-color: rgb(57, 111, 198); /* Darker blue for hover effect */
+}
+
+/* Change button color in language-selector */
+.language-selector button {
+    background-color: rgb(34, 73, 135); /* Blue background for buttons */
+    color: white; /* Text color for buttons */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 4px; /* Optional: Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.language-selector button:hover {
+    background-color: rgb(57, 111, 198); /* Darker blue for hover effect */
+}
+
 
 .editor-container {
     flex: 6; /* Increased flex value to occupy more space */

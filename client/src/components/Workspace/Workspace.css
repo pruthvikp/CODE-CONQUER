@@ -2,8 +2,9 @@
 .workspace-container {
     display: flex;
     flex-direction: row;
+    /* Ensure horizontal layout */
     min-height: 100vh;
-    background-color: #1a1a1a; /* Dark background */
+    background-color: #f0f2f5;
     padding: 1rem;
     box-sizing: border-box;
     overflow: hidden;
@@ -12,20 +13,22 @@
 /* Problem Description Container */
 .problem-desc-container {
     flex: 1;
+    /* Allow flexible width for better responsiveness */
     max-width: 40%;
-    background: #2d2d2d; /* Darker background for problem description */
+    /* Ensure it doesn’t exceed 40% width */
+    background: white;
     border-radius: 5px;
-    border: 2px solid #3e3e3e; /* Darker border */
+    border: 2px solid #e2e8f0;
     padding: 1rem;
     overflow-y: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Slightly darker shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    color: #f0f2f5; /* Light text color */
 }
 
 /* Right Pane (Code Editor and Test Cases) */
 .right-pane {
     flex: 1.5;
+    /* Give it more width relative to the description */
     display: flex;
     flex-direction: column;
     padding-left: 1rem;
@@ -36,116 +39,48 @@
 /* Code Editor Container */
 .editor-container {
     flex: 1;
-    background: #2d2d2d; /* Dark background */
+    background: white;
     border-radius: 5px;
     padding: 1rem;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Slightly darker shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     min-height: 0;
-    overflow-y: auto;
-    color: #f0f2f5; /* Light text color */
 }
 
 /* Test Cases Container */
 .testcase-container {
     flex: 1;
-    background: #2d2d2d; /* Dark background */
+    background: white;
     border-radius: 5px;
     padding: 1rem;
     overflow-y: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Slightly darker shadow */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     min-height: 0;
-    color: #f0f2f5; /* Light text color */
-}
-/* Problem Description Container */
-.problem-description-container {
-    background: #2d2d2d; /* Dark background */
-    border-radius: 8px;
-    border: 1px solid #3e3e3e; /* Darker border */
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4); /* Slightly darker shadow */
-    color: #f0f2f5; /* Light text color */
-    margin-bottom: 1rem;
-    max-width: 800px;
-    box-sizing: border-box;
-}
-
-/* Title */
-.problem-description-container h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: #e0e0e0; /* Lighter text color for the title */
-}
-
-/* Details */
-.problem-description-container p {
-    margin: 0.5rem 0;
-}
-
-/* Examples Section */
-.examples {
-    margin-top: 1rem;
-}
-
-.examples h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: #e0e0e0; /* Lighter text color for headings */
-}
-
-.examples div {
-    background: #1f1f1f; /* Slightly lighter background for examples */
-    border-radius: 5px;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.examples p {
-    margin: 0;
-}
-
-/* Constraints Section */
-.constraints {
-    margin-top: 1rem;
-}
-
-.constraints h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: #e0e0e0; /* Lighter text color for headings */
-}
-
-.constraints ul {
-    padding-left: 1.5rem;
-}
-
-.constraints li {
-    margin-bottom: 0.5rem;
 }
 
 /* Code Editor and Test Cases Heading */
 .code-editor-heading,
 .test-cases-heading {
     font-size: 0.875rem;
+    /* Slightly larger font for better readability */
     font-weight: 600;
     height: 2rem;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #3e3e3e; /* Darker border */
+    border-bottom: 1px solid #e2e8f0;
     margin-bottom: 1rem;
     box-sizing: border-box;
-    color: #f0f2f5; /* Light text color */
 }
 
 /* Compile Button Container */
 .compile-btn-container {
     padding: 0.5rem;
-    border-top: 1px solid #3e3e3e; /* Darker border */
+    border-top: 1px solid #e2e8f0;
     display: flex;
     justify-content: flex-end;
-    background: #2d2d2d; /* Dark background */
+    background: white;
     margin-top: auto;
     box-sizing: border-box;
 }
@@ -168,27 +103,99 @@
 
 /* Test Case Number Styling */
 .test-case-number {
-    background-color: #1f2e23; /* Darker green background */
+    background-color: #e8f5e9;
+    /* Softer green background for better visibility */
     padding: 0.5rem 1rem;
     margin: 0.5rem 0;
     border-radius: 5px;
     display: inline-block;
     cursor: pointer;
-    color: #2db55d; /* Match button color for consistency */
+    color: #2db55d;
+    /* Match button color for consistency */
 }
 
 /* Test Case Input and Output */
 .testcase-input,
 .testcase-output {
-    background: #3e3e3e; /* Darker background */
+    background: #f4f4f4;
+    /* Lighter background for better contrast */
     padding: 1rem;
     border-radius: 10px;
     font-size: 0.875rem;
     margin-bottom: 1rem;
-    color: #f0f2f5; /* Light text color */
+    color: #262626;
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .problem-desc-container {
+        max-width: 45%;
+    }
+
+    .right-pane {
+        padding-left: 0.5rem;
+        /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .workspace-container {
+        flex-direction: column;
+    }
+
+    .problem-desc-container,
+    .right-pane {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+
+    .right-pane {
+        padding-left: 0;
+        /* Remove padding for narrower screens */
+    }
+}
+
+/* Right Pane (Code Editor and Test Cases) */
+.right-pane {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Code Editor Container */
+.editor-container {
+    flex: 1;
+    background: white;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    height: 50%;
+    /* Set height to 50% of the right pane */
+    min-height: 0;
+    overflow-y: auto;
+}
+
+/* Test Cases Container */
+.testcase-container {
+    flex: 1;
+    background: white;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    height: 50%;
+    /* Set height to 50% of the right pane */
+    min-height: 0;
+    overflow-y: auto;
+}
+
+/* Responsive Design Adjustments */
 @media (max-width: 1024px) {
     .problem-desc-container {
         max-width: 45%;

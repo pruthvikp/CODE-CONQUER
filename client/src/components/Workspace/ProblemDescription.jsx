@@ -2,28 +2,25 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from 'react-router-dom';
 
-
 const ProblemDescription = () => {
-
-const { id } = useParams(); // This is the `id` field from the URL
+  const { id } = useParams(); // Get problem ID from URL
   const [problem, setProblem] = useState(null);
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
 
-useEffect(() => {
-  const fetchProblem = async () => {
-    const url = `http://localhost:5500/api/problem-details/${id}`;
-    // console.log('Fetching URL:', url); // Log the URL
-    try {
-      const response = await axios.get(url);
-      setProblem(response.data);
-    } catch (err) {
-      console.error('Error fetching problem details:', err);
-      setError('Problem not found or server error');
-    }
-  };
-  fetchProblem();
-}, [id]);
-
+  useEffect(() => {
+    const fetchProblem = async () => {
+      const url = `http://localhost:5500/api/problem-details/${id}`;
+      try {
+        const response = await axios.get(url);
+        console.log(response.data.examples);
+        setProblem(response.data);
+      } catch (err) {
+        console.error('Error fetching problem details:', err);
+        setError('Problem not found or server error');
+      }
+    };
+    fetchProblem();
+  }, [id]);
 
   if (error) return <div>{error}</div>;
   if (!problem) return <div>Loading...</div>;

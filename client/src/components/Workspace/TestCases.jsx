@@ -6,6 +6,7 @@ const TestCases = ({ examples, handleCompile, processing }) => {
 
   const handleRunTestCases = async () => {
     const results = await handleCompile();
+    console.log(results)
     setResults(results);  // Set the results to display them
   };
 
