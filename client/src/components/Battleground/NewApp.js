@@ -189,9 +189,8 @@ function NewApp() {
         <Editor
           key={language}
           options={{ minimap: { enabled: false } }}
-          height="70vh"
-          width="90vh" /* Increased height for better editor visibility */
           theme="vs-dark"
+          height="70vh"
           language={language}
           value={value}
           onMount={onMount}
